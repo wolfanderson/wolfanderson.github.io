@@ -6,19 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hello World | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="前言测试使用了两个jar包，分别为 junit-4.12.jar hamcrest-all-1.3.jar 注解测试过程中，遇到了三个问题，问题如下： 问题1@ContextConfiguration(“classpath:applicationContext.xml”) 这里我将classpath的class写成了大写的Class 。。。 问题2说是没有main函数。 为什么呢？ 因为我现在在用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/08/09/hello-world/index.html">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2019/08/19/springAOP注解测试时问题/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="前言测试使用了两个jar包，分别为 junit-4.12.jar hamcrest-all-1.3.jar 注解测试过程中，遇到了三个问题，问题如下： 问题1@ContextConfiguration(“classpath:applicationContext.xml”) 这里我将classpath的class写成了大写的Class 。。。 问题2说是没有main函数。 为什么呢？ 因为我现在在用">
 <meta property="og:locale" content="ch">
-<meta property="og:updated_time" content="2019-08-09T14:22:08.779Z">
+<meta property="og:image" content="c:%5CUsers%5Cwolfmaster%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1566200154894.png">
+<meta property="og:updated_time" content="2019-08-19T07:36:47.293Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="前言测试使用了两个jar包，分别为 junit-4.12.jar hamcrest-all-1.3.jar 注解测试过程中，遇到了三个问题，问题如下： 问题1@ContextConfiguration(“classpath:applicationContext.xml”) 这里我将classpath的class写成了大写的Class 。。。 问题2说是没有main函数。 为什么呢？ 因为我现在在用">
+<meta name="twitter:image" content="c:%5CUsers%5Cwolfmaster%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1566200154894.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -154,39 +156,26 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-springAOP注解测试时问题" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Hello World
-    </h1>
-  
-
-        
-        <a href="/2019/08/09/hello-world/" class="archive-article-date">
-  	<time datetime="2019-08-09T14:22:08.778Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>测试使用了两个jar包，分别为</p>
+<p><a href="http://how2j.cn/frontdownload?bean.id=1189" target="_blank" rel="noopener">junit-4.12.jar</a></p>
+<p><a href="http://how2j.cn/frontdownload?bean.id=1190" target="_blank" rel="noopener">hamcrest-all-1.3.jar</a></p>
+<p>注解测试过程中，遇到了三个问题，问题如下：</p>
+<h3 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h3><p>@ContextConfiguration(“classpath:applicationContext.xml”)</p>
+<p>这里我将classpath的class写成了大写的Class</p>
+<p>。。。</p>
+<h3 id="问题2"><a href="#问题2" class="headerlink" title="问题2"></a>问题2</h3><p>说是没有main函数。</p>
+<p>为什么呢？</p>
+<p>因为我现在在用测试啊</p>
+<p>所以选择run as 中的<strong>JUnit Test</strong></p>
+<h3 id="问题3"><a href="#问题3" class="headerlink" title="问题3"></a>问题3</h3><p>xml文件里记得导入新加的两个包</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.how2java.pojo"</span>/&gt;</span>  <span class="comment">&lt;!-- 对pojo包进行扫描 --&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p><img src="C:%5CUsers%5Cwolfmaster%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1566200154894.png" alt="1566200154894"></p>
 
       
 
@@ -266,7 +255,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/09/hello-world/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/19/springAOP注解测试时问题/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -280,18 +269,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/09/台风来了/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/08/19/SpringMVC端口被占用问题/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          台风来了
+          (no title)
         
       </div>
     </a>
   
   
-    <a href="/2019/06/09/注解还是xml配置？/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Spring中注解还是XML配置呢？</div>
+    <a href="/2019/08/19/注解配置AOP时遇到的问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>
   

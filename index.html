@@ -12,7 +12,7 @@
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en">
+<meta property="og:locale" content="ch">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
   
@@ -46,7 +46,7 @@
 			<img src="" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		  <h1 class="header-author"><a href="/">���</a></h1>
 		</hgroup>
 		
 
@@ -104,7 +104,7 @@
 				<img src="" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">John Doe</h1>
+			  <h1 class="header-author js-header-author">���</h1>
 			</hgroup>
 			
 			
@@ -151,6 +151,467 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-SpringMVC注解问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="问题1：-Controller"><a href="#问题1：-Controller" class="headerlink" title="问题1：@Controller"></a>问题1：@Controller</h3><h4 id="描述："><a href="#描述：" class="headerlink" title="描述："></a>描述：</h4><p>在类前面加上<strong>@Controller</strong> 表示该类是一个控制器，</p>
+<p>报错：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Controller is not an annotation type</span><br></pre></td></tr></table></figure>
+
+<h4 id="原因："><a href="#原因：" class="headerlink" title="原因："></a>原因：</h4><p>应导入包：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import org.springframework.stereotype.Controller;</span><br></pre></td></tr></table></figure>
+
+<p>而不是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import org.springframework.web.servlet.mvc.Controller;</span><br></pre></td></tr></table></figure>
+
+<h3 id="问题2：springmvc-servlet-xml问题"><a href="#问题2：springmvc-servlet-xml问题" class="headerlink" title="问题2：springmvc-servlet.xml问题"></a>问题2：springmvc-servlet.xml问题</h3><h4 id="描述：-1"><a href="#描述：-1" class="headerlink" title="描述："></a>描述：</h4><?xml version="1.0" encoding="UTF-8"?><p>提示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The processing instruction target matching &amp;quot;[xX][mM][lL]&amp;quot; is not allowed.</span><br></pre></td></tr></table></figure>
+
+<h4 id="原因：-1"><a href="#原因：-1" class="headerlink" title="原因："></a>原因：</h4><p>​            <strong>(1)一般多是由于xml文件头部有了空格或回车导致的</strong></p>
+<p>​            <strong>(2)大写和小写问题</strong></p>
+<p>​            <strong><?xml version="1.0" encoding="UTF-8"?>不能写成<?XML version="1.0" encoding="UTF-8"?></strong></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/19/SpringMVC注解问题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-SpringMVC端口被占用问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>在eclipse中配置的时候, 出现图示的异常 ,</p>
+<p><img src="http://stepimagewm.how2j.cn/5139.png" alt="Eclipseä¸­å¯å¨Tomcaté®é¢-ç«¯å£"></p>
+<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p>1.关闭现在正在运行的tomcat服务后 , 重新run–&gt; server—&gt; 就没问题了</p>
+<p>2.端口占用，使用cmd窗口三个步骤：</p>
+<p>1）使用命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ano|findstr &quot;8080&quot;</span><br></pre></td></tr></table></figure>
+
+<p>查看占用端口的进程，如1234</p>
+<p>2）使用命令: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tasklist|findstr &quot;1234&quot;</span><br></pre></td></tr></table></figure>
+
+<p>1234为根据上一步找到的对应的pid，发现进程为java.exe(比如)</p>
+<p>3）使用命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">taskkill /f /t /im java.exe</span><br></pre></td></tr></table></figure>
+
+<p>结束java.exe</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/19/SpringMVC端口被占用问题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-springAOP注解测试时问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>测试使用了两个jar包，分别为</p>
+<p><a href="http://how2j.cn/frontdownload?bean.id=1189" target="_blank" rel="noopener">junit-4.12.jar</a></p>
+<p><a href="http://how2j.cn/frontdownload?bean.id=1190" target="_blank" rel="noopener">hamcrest-all-1.3.jar</a></p>
+<p>注解测试过程中，遇到了三个问题，问题如下：</p>
+<h3 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h3><p>@ContextConfiguration(“classpath:applicationContext.xml”)</p>
+<p>这里我将classpath的class写成了大写的Class</p>
+<p>。。。</p>
+<h3 id="问题2"><a href="#问题2" class="headerlink" title="问题2"></a>问题2</h3><p>说是没有main函数。</p>
+<p>为什么呢？</p>
+<p>因为我现在在用测试啊</p>
+<p>所以选择run as 中的<strong>JUnit Test</strong></p>
+<h3 id="问题3"><a href="#问题3" class="headerlink" title="问题3"></a>问题3</h3><p>xml文件里记得导入新加的两个包</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.how2java.pojo"</span>/&gt;</span>  <span class="comment">&lt;!-- 对pojo包进行扫描 --&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p><img src="C:%5CUsers%5Cwolfmaster%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1566200154894.png" alt="1566200154894"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/19/springAOP注解测试时问题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-注解配置AOP时遇到的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>title: 注解配置AOP时遇到的问题<br>date: 2019-06-11 22:26:50<br>tags:</p>
+<p>话不多说</p>
+<p>show me code</p>
+<h3 id="配置业务类："><a href="#配置业务类：" class="headerlink" title="配置业务类："></a>配置业务类：</h3><p>使用@Component(“s”) 注解ProductService 类</p>
+<h3 id="配置切面："><a href="#配置切面：" class="headerlink" title="配置切面："></a>配置切面：</h3><p>@Aspect 注解表示这是一个切面<br>@Component 表示这是一个bean,由Spring进行管理<br>@Around(value = “execution(* com.how2java.service.ProductService.*(..))”) 表示对com.how2java.service.ProductService 这个类中的所有方法进行切面操作</p>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>问题来了</p>
+<p>我用同样的方法配置</p>
+<p>出现了这样的问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">八月 19, 2018 3:10:25 下午 org.springframework.context.support.AbstractApplicationContext prepareRefresh</span><br><span class="line">信息: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1a86f2f1: startup date [Mon Aug 19 15:10:25 CST 2018]; root of context hierarchy</span><br><span class="line">八月 19, 2018 3:10:26 下午 org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions</span><br><span class="line">信息: Loading XML bean definitions from class path resource [applicationContext.xml]</span><br><span class="line">八月 19, 2018 3:10:26 下午 org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons</span><br><span class="line">信息: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@39c0f4a: defining beans [loggerAspect,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,s,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; root of factory hierarchy</span><br><span class="line">八月 19, 2018 3:10:26 下午 org.springframework.beans.factory.support.DefaultSingletonBeanRegistry destroySingletons</span><br><span class="line">信息: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@39c0f4a: defining beans [loggerAspect,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,s,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; root of factory hierarchy</span><br><span class="line">Exception in thread &quot;main&quot; org.springframework.beans.factory.BeanCreationException: Error creating bean with name &apos;s&apos; defined in file [C:\Users\wolfmaster\Downloads\javahome\20180729\Spring\spring\bin\com\how2java\service\ProductService.class]: Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: Pointcut is not well-formed: expecting &apos;name pattern&apos; at character position 49</span><br><span class="line">execution(*com.how2java.service.ProductService.*(..))</span><br><span class="line">                                                 ^</span><br><span class="line"></span><br><span class="line">	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:527)</span><br><span class="line">	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)</span><br><span class="line">	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:295)</span><br><span class="line">	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)</span><br><span class="line">	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:292)</span><br><span class="line">	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)</span><br><span class="line">	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:580)</span><br><span class="line">	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:913)</span><br><span class="line">	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:464)</span><br><span class="line">	at org.springframework.context.support.ClassPathXmlApplicationContext.&lt;init&gt;(ClassPathXmlApplicationContext.java:139)</span><br><span class="line">	at org.springframework.context.support.ClassPathXmlApplicationContext.&lt;init&gt;(ClassPathXmlApplicationContext.java:93)</span><br><span class="line">	at com.how2java.test.TestSpring.main(TestSpring.java:10)</span><br><span class="line">Caused by: java.lang.IllegalArgumentException: Pointcut is not well-formed: expecting &apos;name pattern&apos; at character position 49</span><br><span class="line">execution(*com.how2java.service.ProductService.*(..))</span><br><span class="line">                                                 ^</span><br><span class="line"></span><br><span class="line">	at org.aspectj.weaver.tools.PointcutParser.resolvePointcutExpression(PointcutParser.java:333)</span><br><span class="line">	at org.aspectj.weaver.tools.PointcutParser.parsePointcutExpression(PointcutParser.java:308)</span><br><span class="line">	at org.springframework.aop.aspectj.AspectJExpressionPointcut.buildPointcutExpression(AspectJExpressionPointcut.java:195)</span><br><span class="line">	at org.springframework.aop.aspectj.AspectJExpressionPointcut.checkReadyToMatch(AspectJExpressionPointcut.java:181)</span><br><span class="line">	at org.springframework.aop.aspectj.AspectJExpressionPointcut.getClassFilter(AspectJExpressionPointcut.java:162)</span><br><span class="line">	at org.springframework.aop.support.AopUtils.canApply(AopUtils.java:202)</span><br><span class="line">	at org.springframework.aop.support.AopUtils.canApply(AopUtils.java:256)</span><br><span class="line">	at org.springframework.aop.support.AopUtils.findAdvisorsThatCanApply(AopUtils.java:288)</span><br><span class="line">	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findAdvisorsThatCanApply(AbstractAdvisorAutoProxyCreator.java:117)</span><br><span class="line">	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findEligibleAdvisors(AbstractAdvisorAutoProxyCreator.java:87)</span><br><span class="line">	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.getAdvicesAndAdvisorsForBean(AbstractAdvisorAutoProxyCreator.java:68)</span><br><span class="line">	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.wrapIfNecessary(AbstractAutoProxyCreator.java:359)</span><br><span class="line">	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.postProcessAfterInitialization(AbstractAutoProxyCreator.java:322)</span><br><span class="line">	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsAfterInitialization(AbstractAutowireCapableBeanFactory.java:407)</span><br><span class="line">	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1426)</span><br><span class="line">	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519)</span><br><span class="line">	... 11 more</span><br></pre></td></tr></table></figure>
+
+<h3 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h3><p>问题出在了这里</p>
+<p>Around注解这里我写的是这样</p>
+<p>@Around(value = “execution(*  com.how2java.service.ProductService.*(..))”) </p>
+<p>正确如下</p>
+<p>@Around(value = “execution(* com.how2java.service.ProductService.*(..))”) </p>
+<p>差别在于</p>
+<p>*和com.how2java中间不能有空格</p>
+<p>！！！</p>
+<p>代码规范啊！</p>
+<p>很重要啊！</p>
+<h3 id="感悟"><a href="#感悟" class="headerlink" title="感悟"></a>感悟</h3><p>今天我真开心</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/19/注解配置AOP时遇到的问题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Eclipse快捷键大全" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="导包快捷键"><a href="#导包快捷键" class="headerlink" title="导包快捷键"></a>导包快捷键</h3><h3 id="Ctrl-shift-O"><a href="#Ctrl-shift-O" class="headerlink" title="[Ctrl+shift+O]"></a>[Ctrl+shift+O]</h3>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/19/Eclipse快捷键大全/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-AOP的理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="AOP概念"><a href="#AOP概念" class="headerlink" title="AOP概念"></a>AOP概念</h2><p>AOP 即 Aspect Oriental Program 面向切面编程   </p>
+<p>网站的功能分为核心功能和辅助功能，辅助功能叫做切面  </p>
+<p>AOP的过程分为两步：1，在业务类中插入切入点，2，将切入点和切面类关联起来  </p>
+<p>业务类就是核心类，就是网站的主要功能</p>
+<p>切面类就是辅助功能，日志，统计之类的</p>
+<p>通过配置，可以实现，在某个方法调用的时候，触发别的方法执行，就好像在监视目标方法，你被执行，就触发我执行。</p>
+<h2 id="AOP术语"><a href="#AOP术语" class="headerlink" title="AOP术语"></a>AOP术语</h2><h3 id="1-通知："><a href="#1-通知：" class="headerlink" title="1.通知："></a>1.通知：</h3><p>通知定义了切面要完成的工作内容和何时完成工作，就是什么时候去做辅助功能，功能具体是什么代码</p>
+<p>五种类型</p>
+<ol>
+<li><p>Before——在方法调用之前调用通知</p>
+</li>
+<li><p>After——在方法完成之后调用通知，无论方法执行成功与否</p>
+</li>
+<li><p>After-returning——在方法执行成功之后调用通知</p>
+</li>
+<li><p>After-throwing——在方法抛出异常后进行通知</p>
+</li>
+<li><p>Around——通知包裹了被通知的方法，在被通知的方法调用之前和调用之后执行自定义的行为</p>
+<p>前四个好理解的，最后一个</p>
+</li>
+</ol>
+<p>around 表示切面在被监视的函数运行前后都会执行，</p>
+<p>下面是切面要执行的函数 log，log函数有一个形参 joinPoint 这个可以理解为断点，中间一句代表的就是被监视的程序运行，在被监视的程序运行时，可以替换他的形参，这个是 around 厉害的地方，如果被监视的程序，运行的时候输入的是一个haha字符串作为实参，但是经过log方法之后，这个参数就被替换为abc了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">log</span><span class="params">(ProceedingJoinPoint joinPoint)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"我在被监视程序之前。。。"</span>);</span><br><span class="line">        Object object = joinPoint.proceed(<span class="keyword">new</span> Object[]&#123;<span class="string">"abc"</span>&#125;);</span><br><span class="line">        System.out.println(<span class="string">"我在被监视程序之后。。。"</span> );</span><br><span class="line">        <span class="keyword">return</span> object;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-连接点："><a href="#2-连接点：" class="headerlink" title="2.连接点："></a>2.连接点：</h3><p>在执行正常的功能时，能够插入切面的点。可以作为切入点的点。备选点。</p>
+<p>连接点可以是调用方法时、抛出异常时、甚至修改字段时，在这些点，就可以去执行切面。</p>
+<h3 id="3-切面："><a href="#3-切面：" class="headerlink" title="3.切面："></a>3.切面：</h3><p>定义：切面是通知和切点的集合，通知和切点共同定义了切面的全部功能——它是什么，在何时何处完成其功能。</p>
+<p>声明切面：</p>
+<p>在Spring中，切面就是一个包含通知和切点的对象，是一个Bean，Bean的字段和方法就是该切面的状态和行为，还要通过配置，来指定切入点和通知实现</p>
+<p>在xml中，切面使用<a href="aop:aspect" target="_blank" rel="noopener">aop:aspect</a>标签指定，ref属性用来引用切面支持Bean。这个bean里面就是用来执行要做的辅助功能的。</p>
+<h3 id="4-切点："><a href="#4-切点：" class="headerlink" title="4.切点："></a>4.切点：</h3><p>定义：如果通知定义了“什么”和“何时”。那么切点就定义了“何处”。切点会匹配通知所要织入的一个或者多个连接点。通常使用明确的类或者方法来指定这些切点。</p>
+<p>作用：定义通知被应用的位置（在哪些连接点）</p>
+<p>切入点的声明：</p>
+<p>切入点在Spring也是一个Bean。</p>
+<p>切点的声明有三种定义方式：</p>
+<p><strong>1）在&lt;<a href="aop:config" target="_blank" rel="noopener">aop:config</a>&gt;标签下使用&lt;<a href="aop:pointcut" target="_blank" rel="noopener">aop:pointcut</a>&gt;声明一个切入点Bean</strong>，该切入点可以被多个切面使用，对于需要共享使用的切入点最好使用该方式，该切入点使用id属性指定Bean名字，在通知定义时使用pointcut-ref属性通过该id引用切入点，expression属性指定切入点表达式</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;aop:config&gt;  </span><br><span class="line"> 　　&lt;aop:pointcut id=<span class="string">"pointcut"</span> expression=<span class="string">"execution(* cn.javass..*.*(..))"</span>/&gt;  </span><br><span class="line"> 　　&lt;aop:aspect ref=<span class="string">"aspectSupportBean"</span>&gt;  </span><br><span class="line">    　　&lt;aop:before pointcut-ref=<span class="string">"pointcut"</span> method=<span class="string">"before"</span>/&gt;  </span><br><span class="line">　　　&lt;/aop:aspect&gt;  </span><br><span class="line">&lt;/aop:config&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2）在&lt;<a href="aop:aspect" target="_blank" rel="noopener">aop:aspect</a>&gt;标签下使用&lt;<a href="aop:pointcut" target="_blank" rel="noopener">aop:pointcut</a>&gt;声明一个切入点Bean</strong>，该切入点可以被多个切面使用，但一般该切入点只被该切面使用，当然也可以被其他切面使用，但最好不要那样使用，该切入点使用id属性指定Bean名字，在通知定义时使用pointcut-ref属性通过该id引用切入点，expression属性指定切入点表达式：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;aop:config&gt;  </span><br><span class="line"> &lt;aop:aspect ref=<span class="string">"aspectSupportBean"</span>&gt;  </span><br><span class="line">    &lt;aop:pointcut id=<span class="string">" pointcut"</span> expression=<span class="string">"execution(* cn.javass..*.*(..))"</span>/&gt;  </span><br><span class="line">    &lt;aop:before pointcut-ref=<span class="string">"pointcut"</span> method=<span class="string">"before"</span>/&gt;  </span><br><span class="line"> &lt;/aop:aspect&gt;  </span><br><span class="line">&lt;/aop:config&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3）匿名切入点Bean，</strong>可以在声明通知时通过pointcut属性指定切入点表达式，该切入点是匿名切入点，只被该通知使用：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;aop:config&gt;  </span><br><span class="line"> &lt;aop:aspect ref=<span class="string">"aspectSupportBean"</span>&gt;  </span><br><span class="line">     &lt;aop:after pointcut=<span class="string">"execution(* cn.javass..*.*(..))"</span> method=<span class="string">"afterFinallyAdvice"</span>/&gt;  </span><br><span class="line"> &lt;/aop:aspect&gt;  </span><br><span class="line">&lt;/aop:config&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-引入："><a href="#5-引入：" class="headerlink" title="5.引入："></a>5.引入<strong>：</strong></h3><p>引入允许我们向现有的类中添加方法或属性</p>
+<h3 id="6-织入："><a href="#6-织入：" class="headerlink" title="6.织入："></a>6.织入：</h3><p>织入是将切面应用到目标对象来创建的代理对象过程。</p>
+<p>切面在指定的连接点被织入到目标对象中，在目标对象的生命周期中有多个点可以织入</p>
+<ol>
+<li>编译期——切面在目标类编译时期被织入，这种方式需要特殊编译器。AspectJ的织入编译器就是以这种方式织入切面。</li>
+<li>类加载期——切面在类加载到</li>
+<li>JVM ，这种方式需要特殊的类加载器，他可以在目标类被引入应用之前增强该目标类的字节码。AspectJ5 的 LTW 就支持这种织入方式</li>
+<li>运行期——切面在应用运行期间的某个时刻被织入。一般情况下，在织入切面时候，AOP 容器会为目标对象动态的创建代理对象。Spring AOP 就是以这种方式织入切面。</li>
+</ol>
+<h3 id="7-例子"><a href="#7-例子" class="headerlink" title="7.例子"></a>7.例子</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;aop:config&gt;</span><br><span class="line">        &lt;aop:pointcut id=<span class="string">"loggerCutpoint"</span></span><br><span class="line">            expression=</span><br><span class="line">            <span class="string">"execution(* com.how2java.service.ProductService.*(..)) "</span>/&gt;</span><br><span class="line">             </span><br><span class="line">        &lt;aop:aspect id=<span class="string">"logAspect"</span> ref=<span class="string">"loggerAspect"</span>&gt;</span><br><span class="line">            &lt;aop:after pointcut-ref=<span class="string">"loggerCutpoint"</span> method=<span class="string">"log"</span>/&gt;</span><br><span class="line">        &lt;/aop:aspect&gt;</span><br><span class="line">  &lt;/aop:config&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这个配置过程的含义：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;aop:pointcut id=<span class="string">"loggerCutpoint"</span> expression=<span class="string">"execution(* com.how2java.service.ProductService.*(..)) "</span>/&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这一句是声明切入点，切入点的 id 叫 loggerCutPoint ，用来标记这个切入点，</p>
+<p>这个expression表示：满足expression中的方法调用之后，就会去进行切面操作，类似于触发了切面：</p>
+<p>第一个 * 代表返回任意类型<br>com.how2java.service.ProductService.*     表示包名以 com.how2java.service.ProductService 开头的类的任意方法</p>
+<p>（第二个*表示任意方法，通配符）<br>(..) 表示方法的参数是任意数量和类型</p>
+<p>简单说就是，只要com.how2java.service这个包中的ProductService类的任意一个函数被调用，不管你的返回值是什么，都会触发开关，我就会去执行切面，也就是辅助功能，但是辅助功能是什么呢，就是下面两句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;aop:aspect id=&quot;logAspect&quot; ref=&quot;loggerAspect&quot;&gt;</span><br><span class="line"></span><br><span class="line">　　&lt;aop:after pointcut-ref=&quot;loggerCutpoint&quot; method=&quot;log&quot;/&gt;</span><br><span class="line"></span><br><span class="line">&lt;/aop:aspect&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这两句是定义了一个切面，上面说只要触发开关，就会去执行切面，就是指的这里的切面，所谓切面，就是一个类中的方法而已.</p>
+<p>id代表这个切面的名字，ref就是指的方法所在的类，method代表的就是方法的名字，</p>
+<p>pointcut-ref=”loggerCutpoint” 这个就是表示我这个切面是和上面的切点关联起来的（一个切点是可以关联多个切面的，一个切面只能关联一个方法），只要上面的切点被触发，我就会到这里来执行一些辅助功能，搞得和单片机的中断一样，</p>
+<p>after表示在切入点触发之后来执行我这个中断，当然也有before，一共有五个before，after，After-returning ，After-throwing，Around。</p>
+<p>在 method 参数后面，还可以加上参数列表。</p>
+<h3 id="8-易错点"><a href="#8-易错点" class="headerlink" title="8.易错点"></a>8.易错点</h3><p>分享一个自己遇到的错误</p>
+<p>（0）代码背景：</p>
+<p>how2j上面的spring教程，推荐大家看看：</p>
+<p><a href="http://how2j.cn/k/springmvc/springmvc-springmvc/615.html?p=75817" target="_blank" rel="noopener">http://how2j.cn/k/springmvc/springmvc-springmvc/615.html?p=75817</a></p>
+<p>（1）问题描述：</p>
+<p>我想要实现这样一个功能：多个切面是否可以作用同一个切入点。</p>
+<p>所以我这样操作：</p>
+<p>新建了一个切面类，不过依旧还是作用于原先的切入点。</p>
+<p>（2）实现过程：</p>
+<p>原来的架构how2j上已有，详见spring AOP那一章，具体增加部分如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--注意这段代码有错误！正确的是下一个！--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 控制反转   目标类 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">name</span>=<span class="string">"s"</span> <span class="attr">class</span>=<span class="string">"com.how2java.service.ProductService"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span>   </span><br><span class="line">      </span><br><span class="line">     <span class="comment">&lt;!-- 控制反转   切面类 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"loggerAspect"</span> <span class="attr">class</span>=<span class="string">"com.how2java.aspect.LoggerAspect"</span>/&gt;</span></span><br><span class="line">     </span><br><span class="line">    <span class="comment">&lt;!-- 控制反转    性能统计的切面类 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"performerAspect"</span> <span class="attr">class</span>=<span class="string">"com.how2java.aspect.PerformerAspect"</span>/&gt;</span></span><br><span class="line">      </span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:config</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 设置切入点的作用对象和id --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">aop:pointcut</span> <span class="attr">id</span>=<span class="string">"loggerCutpoint"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">expression</span>=</span></span><br><span class="line"><span class="tag">            "<span class="attr">execution</span>(* <span class="attr">com.how2java.service.ProductService.</span>*(<span class="attr">..</span>)) "/&gt;</span></span><br><span class="line">              </span><br><span class="line">               </span><br><span class="line">        <span class="comment">&lt;!-- 设置切面的id，以及该切面中的log方法会被以环绕“around”方式放置于loggerCutpoint切入点  --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">aop:aspect</span> <span class="attr">id</span>=<span class="string">"logAspect"</span> <span class="attr">ref</span>=<span class="string">"loggerAspect"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">aop:around</span> <span class="attr">pointcut-ref</span>=<span class="string">"loggerCutpoint"</span> <span class="attr">method</span>=<span class="string">"log"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">aop:aspect</span>&gt;</span>  </span><br><span class="line">         </span><br><span class="line">       <span class="comment">&lt;!-- bean时一个id，aop时一个id --&gt;</span></span><br><span class="line">       <span class="comment">&lt;!-- 这里的ref应该放的是切面类的id或name，而不是切面类的类名，千万不要搞错了 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">aop:aspect</span> <span class="attr">id</span>=<span class="string">"performAspect"</span> <span class="attr">ref</span>=<span class="string">"performerAspect"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">aop:around</span> <span class="attr">pointcut-ref</span>=<span class="string">"loggerCutpoint"</span> <span class="attr">method</span>=<span class="string">"spend"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">aop:aspect</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="tag">&lt;/<span class="name">aop:config</span>&gt;</span>    </span><br><span class="line"> </span><br><span class="line">############################</span><br><span class="line"> </span><br><span class="line">package com.how2java.aspect;</span><br><span class="line"> </span><br><span class="line">import java.util.Date;</span><br><span class="line">import org.aspectj.lang.ProceedingJoinPoint;</span><br><span class="line"> </span><br><span class="line">//性能统计切面类</span><br><span class="line">public class PerformerAspect &#123;</span><br><span class="line">     </span><br><span class="line">        //环绕式切入</span><br><span class="line">    public Object spend(ProceedingJoinPoint proceedingJoinPoint) throws Throwable &#123;</span><br><span class="line">        long start = System.currentTimeMillis();</span><br><span class="line">        System.out.println("开始于"+new Date(start));</span><br><span class="line">         </span><br><span class="line">        Object object = proceedingJoinPoint.proceed();</span><br><span class="line">         </span><br><span class="line">        long end = System.currentTimeMillis();</span><br><span class="line">        System.out.println("结束于"+new Date(end));</span><br><span class="line">        System.out.println("总用时"+(end-start)+"毫秒");</span><br><span class="line">         </span><br><span class="line">        return object;</span><br><span class="line">    &#125;</span><br><span class="line">     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里是我第一次添加的代码，开开心心的点了运行：</p>
+<p>ok</p>
+<p>fine</p>
+<p>错误如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">八月 19, 2018 2:41:15 下午 org.springframework.context.support.AbstractApplicationContext prepareRefresh</span><br><span class="line">信息: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1a86f2f1: startup date [Mon Aug 19 14:41:15 CST 2018]; root of context hierarchy</span><br><span class="line">八月 19, 2018 2:41:15 下午 org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions</span><br><span class="line">信息: Loading XML bean definitions from class path resource [applicationContext.xml]</span><br><span class="line">八月 19, 2018 2:41:15 下午 org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons</span><br><span class="line">信息: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@2669b199: defining beans [c,p,s,loggerAspect,PerformerAspect,org.springframework.aop.config.internalAutoProxyCreator,loggerCutpoint,org.springframework.aop.aspectj.AspectJPointcutAdvisor#0,org.springframework.aop.aspectj.AspectJPointcutAdvisor#1]; root of factory hierarchy</span><br><span class="line">八月 19, 2018 2:41:15 下午 org.springframework.beans.factory.support.DefaultSingletonBeanRegistry destroySingletons</span><br><span class="line">信息: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@2669b199: defining beans [c,p,s,loggerAspect,PerformerAspect,org.springframework.aop.config.internalAutoProxyCreator,loggerCutpoint,org.springframework.aop.aspectj.AspectJPointcutAdvisor#0,org.springframework.aop.aspectj.AspectJPointcutAdvisor#1]; root of factory hierarchy</span><br><span class="line">Exception in thread &quot;main&quot; org.springframework.beans.factory.BeanCreationException: Error creating bean with name &apos;c&apos; defined in class path resource [applicationContext.xml]: BeanPostProcessor before instantiation of bean failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name &apos;org.springframework.aop.aspectj.AspectJPointcutAdvisor#1&apos;: Cannot create inner bean &apos;(inner bean)&apos; of type [org.springframework.aop.aspectj.AspectJAroundAdvice] while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name &apos;(inner bean)#2&apos;: Cannot create inner bean &apos;(inner bean)&apos; of type [org.springframework.aop.config.MethodLocatingFactoryBean] while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name &apos;(inner bean)#2&apos;: Initialization of bean failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named &apos;performerAspect&apos; is defined</span><br><span class="line">	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:452)</span><br><span class="line">	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:295)</span><br><span class="line">	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)</span><br><span class="line">	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:292)</span><br><span class="line">	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)</span><br><span class="line">	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:580)</span><br><span class="line">	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:913)</span><br><span class="line">	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:464)</span><br><span class="line">	at org.springframework.context.support.ClassPathXmlApplicationContext.&lt;init&gt;(ClassPathXmlApplicationContext.java:139)</span><br><span class="line">	at org.springframework.context.support.ClassPathXmlApplicationContext.&lt;init&gt;(ClassPathXmlApplicationContext.java:93)</span><br><span class="line">	at com.how2java.test.TestSpring.main(TestSpring.java:10)</span><br><span class="line">Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name &apos;org.springframework.aop.aspectj.AspectJPointcutAdvisor#1&apos;: Cannot create inner bean &apos;(inner bean)&apos; of type [org.springframework.aop.aspectj.AspectJAroundAdvice] while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name &apos;(inner bean)#2&apos;: Cannot create inner bean &apos;(inner bean)&apos; of type [org.springframework.aop.config.MethodLocatingFactoryBean] while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name &apos;(inner bean)#2&apos;: Initialization of bean failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named &apos;performerAspect&apos; is defined</span><br><span class="line">	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBean(BeanDefinitionValueResolver.java:281)</span><br><span class="line">	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:125)</span><br><span class="line">	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:630)</span><br><span class="line">	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:148)</span><br><span class="line">	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1003)</span><br><span class="line">	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:907)</span><br><span class="line">	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:485)</span><br><span class="line">	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)</span><br><span class="line">	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:295)</span><br><span class="line">	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)</span><br><span class="line">	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:292)</span><br><span class="line">	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:198)</span><br><span class="line">	at org.springframework.aop.framework.autoproxy.BeanFactoryAdvisorRetrievalHelper.findAdvisorBeans(BeanFactoryAdvisorRetrievalHelper.java:86)</span><br><span class="line">	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findCandidateAdvisors(AbstractAdvisorAutoProxyCreator.java:100)</span><br><span class="line">	at org.springframework.aop.aspectj.autoproxy.AspectJAwareAdvisorAutoProxyCreator.shouldSkip(AspectJAwareAdvisorAutoProxyCreator.java:107)</span><br><span class="line">	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.postProcessBeforeInstantiation(AbstractAutoProxyCreator.java:278)</span><br><span class="line">	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInstantiation(AbstractAutowireCapableBeanFactory.java:848)</span><br><span class="line">	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.resolveBeforeInstantiation(AbstractAutowireCapableBeanFactory.java:820)</span><br><span class="line">	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:446)</span><br><span class="line">	... 10 more</span><br><span class="line">Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name &apos;(inner bean)#2&apos;: Cannot create inner bean &apos;(inner bean)&apos; of type [org.springframework.aop.config.MethodLocatingFactoryBean] while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name &apos;(inner bean)#2&apos;: Initialization of bean failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named &apos;performerAspect&apos; is defined</span><br><span class="line">	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBean(BeanDefinitionValueResolver.java:281)</span><br><span class="line">	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:125)</span><br><span class="line">	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:616)</span><br><span class="line">	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:148)</span><br><span class="line">	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1003)</span><br><span class="line">	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:907)</span><br><span class="line">	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:485)</span><br><span class="line">	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)</span><br><span class="line">	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBean(BeanDefinitionValueResolver.java:270)</span><br><span class="line">	... 28 more</span><br><span class="line">Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name &apos;(inner bean)#2&apos;: Initialization of bean failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named &apos;performerAspect&apos; is defined</span><br><span class="line">	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:527)</span><br><span class="line">	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)</span><br><span class="line">	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBean(BeanDefinitionValueResolver.java:270)</span><br><span class="line">	... 36 more</span><br><span class="line">Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named &apos;performerAspect&apos; is defined</span><br><span class="line">	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanDefinition(DefaultListableBeanFactory.java:527)</span><br><span class="line">	at org.springframework.beans.factory.support.AbstractBeanFactory.getMergedLocalBeanDefinition(AbstractBeanFactory.java:1087)</span><br><span class="line">	at org.springframework.beans.factory.support.AbstractBeanFactory.getType(AbstractBeanFactory.java:551)</span><br><span class="line">	at org.springframework.aop.config.MethodLocatingFactoryBean.setBeanFactory(MethodLocatingFactoryBean.java:68)</span><br><span class="line">	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeAwareMethods(AbstractAutowireCapableBeanFactory.java:1440)</span><br><span class="line">	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1408)</span><br><span class="line">	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519)</span><br><span class="line">	... 38 more</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:%5CUsers%5Cwolfmaster%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1566196958831.png" alt="1566196958831"></p>
+<p>这个一大片错误。GG</p>
+<p>于是我只能一点一点看</p>
+<p>终于！</p>
+<p>我发现了！</p>
+<p>我在bean id定义的id和下面aop中ref对应的id不一样！不一样！</p>
+<p>上面的PerformerAspect首字母我用了大写！下面用的时候performerAspect首字母是小写！</p>
+<p>当然报错啊！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 控制反转   目标类 --&gt;</span><br><span class="line">     &lt;bean name=&quot;s&quot; class=&quot;com.how2java.service.ProductService&quot;&gt;</span><br><span class="line">    &lt;/bean&gt;   </span><br><span class="line">     &lt;!-- 控制反转   切面类 --&gt;</span><br><span class="line">    &lt;bean id=&quot;loggerAspect&quot; class=&quot;com.how2java.aspect.LoggerAspect&quot;/&gt;</span><br><span class="line">     &lt;!-- 控制反转   用于性能统计的切面类 --&gt;</span><br><span class="line">    &lt;bean id=&quot;performerAspect&quot; class=&quot;com.how2java.aspect.PerformerAspect&quot;/&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 这里的ref应该放的是切面类的id或name，而不是切面类的类名，千万不要</span><br><span class="line">       搞错了 !!!千万千万不要搞错了！--&gt;</span><br><span class="line">        &lt;aop:aspect id=&quot;performAspect&quot; ref=&quot;performerAspect&quot;&gt;</span><br><span class="line">            &lt;aop:around pointcut-ref=&quot;loggerCutpoint&quot; method=&quot;spend&quot;/&gt;</span><br><span class="line">        &lt;/aop:aspect&gt;</span><br></pre></td></tr></table></figure>
+
+<p>好了，修改好之后</p>
+<p>效果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">八月 19, 2018 2:47:20 下午 org.springframework.context.support.AbstractApplicationContext prepareRefresh</span><br><span class="line">信息: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3327bd23: startup date [Mon Aug 19 14:47:20 CST 2018]; root of context hierarchy</span><br><span class="line">八月 19, 2018 2:47:20 下午 org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions</span><br><span class="line">信息: Loading XML bean definitions from class path resource [applicationContext.xml]</span><br><span class="line">八月 19, 2018 2:47:21 下午 org.springframework.beans.factory.support.DefaultListableBeanFactory preInstantiateSingletons</span><br><span class="line">信息: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@60015ef5: defining beans [c,p,s,loggerAspect,performerAspect,org.springframework.aop.config.internalAutoProxyCreator,loggerCutpoint,org.springframework.aop.aspectj.AspectJPointcutAdvisor#0,org.springframework.aop.aspectj.AspectJPointcutAdvisor#1]; root of factory hierarchy</span><br><span class="line">start log:doSomeService</span><br><span class="line">开始于Mon Aug 19 14:47:22 CST 2018</span><br><span class="line">doSomeService</span><br><span class="line">结束于Mon Aug 19 14:47:22 CST 2018</span><br><span class="line">总用时0毫秒</span><br><span class="line">end log:doSomeService</span><br></pre></td></tr></table></figure>
+
+<p>稳得一腿</p>
+<p>（3）总结</p>
+<p>1）遇到问题不要慌，慢慢找，一条路行不通，换一条</p>
+<p>2）肯定是可以做好的</p>
+<p>3）xml文件中aop这里的ref应该放的是切面类的id或name，而不是切面类的类名，千万不要<br>       搞错了 !!!千万千万不要搞错了！！！over</p>
+<h3 id="9-参考文献"><a href="#9-参考文献" class="headerlink" title="9.参考文献"></a>9.参考文献</h3><p>本文参考：<a href="https://www.cnblogs.com/mxck/p/7027912.html?utm_source=itdadao&amp;utm_medium=referral" target="_blank" rel="noopener">https://www.cnblogs.com/mxck/p/7027912.html?utm_source=itdadao&amp;utm_medium=referral</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/18/AOP的理解/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-台风来了" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -289,6 +750,71 @@
 
 
   
+    <article id="post-注解还是xml配置？" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/09/注解还是xml配置？/">Spring中注解还是XML配置呢？</a>
+    </h1>
+  
+
+        
+        <a href="/2019/06/09/注解还是xml配置？/" class="archive-article-date">
+  	<time datetime="2019-06-09T14:26:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h3 id="注解还是XML配置呢？"><a href="#注解还是XML配置呢？" class="headerlink" title="注解还是XML配置呢？"></a>注解还是XML配置呢？</h3><h3 id="XML配置方式："><a href="#XML配置方式：" class="headerlink" title="XML配置方式："></a>XML配置方式：</h3><p>优：容易编辑，配置比较集中，方便修改，在大业务量的系统里面，通过xml配置会方便后人理解整个系统的架构，修改之后直接重启应用即可<br>缺：比较繁琐，配置形态丑陋, 配置文件过多的时候难以管理 </p>
+<h3 id="注解方式："><a href="#注解方式：" class="headerlink" title="注解方式："></a>注解方式：</h3><p>优：方便，简洁，配置信息和 Java 代码放在一起，有助于增强程序的内聚性。<br>缺：分散到各个class文件中，所以不宜维护, 修改之后你需要重新打包，发布，重启应用。 </p>
+<p><strong>个人体会：</strong> 小项目，参与人数不多，不复杂的用注解，开发快速。 复杂项目，多人交互，配置量大，维护复杂度高的，用配置文件。  </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/06/09/注解还是xml配置？/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
 
 
@@ -299,7 +825,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 John Doe
+    		&copy; 2019 ���
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
